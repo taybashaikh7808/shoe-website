@@ -1,18 +1,17 @@
 import React from "react";
-import { CiHeart ,CiUser , AiOutlineShoppingCart} from "react-icons/ci";
+import { CiHeart, CiUser } from "react-icons/ci";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="h-[70px] w-full bg-white text-black flex justify-between shadow-md ">
       <div>
-        <input type="text" placeholder="Enter shoe type.."/>
+        <input type="text" placeholder="Enter shoe type.." className="h-10 w-50 ml-10 mt-4 rounded-md p-3 bg-gray-300 text-black placeholder-black"/>
       </div>
-      <div>
-        <a href="">
-          <CiHeart />
-          <AiOutlineShoppingCart />
-          <CiUser />
-        </a>
+      <div className="flex space-x-4 mt-5 mr-10 ">
+        <CiHeart size={25} />
+        <AiOutlineShoppingCart size={25} />
+        <CiUser size={25} />
       </div>
     </nav>
   );
