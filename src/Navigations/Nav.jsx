@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <nav>
       <div>
-        <input />
+        <input type="text" placeholder="Enter shoe type.."/>
       </div>
       <div>
         <a href="">
