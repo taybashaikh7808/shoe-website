@@ -54,10 +54,10 @@ const App = () => {
       />
     ));
   }
-  
+  //const result = filteredData(data,selectedcategory,query)
   return (
     <div className="grid grid-cols-[250px_auto] h-screen">
-      <Sidebar />
+      <Sidebar handleCheckbox={handleCheckbox} />
       <div className="flex flex-col w-full">
         <Nav />
         <Recommended />
