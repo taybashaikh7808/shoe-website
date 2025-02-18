@@ -9,8 +9,10 @@ const Input = ({ handleCheckbox, value, title, color, name }) => {
           type="checkbox"
           name={name}
           value={value}
-          className={`mr-2 accent-${value}`}  // Dynamic color classes based on value
+          style={{ accentColor: color }} // This dynamically sets the checkbox color
+          className="mr-2"
         />
+
         {title}
       </label>
     </div>

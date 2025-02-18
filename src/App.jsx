@@ -6,62 +6,56 @@ import Sidebar from "./Sidebar/Sidebar";
 import { data } from "./db/data.js";
 
 const App = () => {
-  const [selectedcategory, setselectedcategory] = useState(null);
+  const [selectedcategory, setselectedcategory] = useState("");
   const [query, setquery] = useState("");
 
+  // Input handler for the search query
   const handleInput = (e) => {
     setquery(e.target.value);
   };
 
-  const filteredItems = data.filter((item) =>
-    item.title.toLowerCase().includes(query.toLowerCase())
-  );
+  // Checkbox handler for category selection
+  const handleCheckbox = (e) => {
+    console.log("Checkbox value:", e.target.value);
+    setselectedcategory(e.target.value);
+  };
 
+  // Button handler for recommended filter buttons
   const handleButton = (e) => {
     setselectedcategory(e.target.value);
   };
 
-  const handleCheckbox = (e) => {
-    setselectedcategory(e.target.value);
-  };
-
-  function filteredData(data, selected, query) {
+  // Function to filter data based on query and selected category
+  const filteredData = (data, selected, query) => {
     let filteredData = data;
 
+    // Filter by query (search bar)
     if (query) {
-      filteredData = filteredItems;
-    }
-
-    if (selected) {
-      filteredData = filteredData.filter(
-        ({ category, color, company, prevPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          company === selected ||
-          prevPrice === selected ||
-          title === selected
+      filteredData = filteredData.filter((item) =>
+        item.title.toLowerCase().includes(query.toLowerCase())
       );
     }
 
-    return filteredData.map(({ img, title, star, reviews, newPrice }) => (
-      <Card
-        key={Math.random()}
-        img={img}
-        title={title}
-        star={star}
-        reviews={reviews}
-        newPrice={newPrice}
-      />
-    ));
-  }
-  //const result = filteredData(data,selectedcategory,query)
+    // Filter by selected category (checkboxes or buttons)
+    if (selected) {
+      filteredData = filteredData.filter(
+        ({ category }) => category.toLowerCase() === selected.toLowerCase()
+      );
+    }
+
+    return filteredData;
+  };
+
+  // Get filtered data
+  const result = filteredData(data, selectedcategory, query);
+
   return (
     <div className="grid grid-cols-[250px_auto] h-screen">
       <Sidebar handleCheckbox={handleCheckbox} />
       <div className="flex flex-col w-full">
-        <Nav />
-        <Recommended />
-        <Products />
+        <Nav query={query} handleInput={handleInput} />
+        <Recommended handleButton={handleButton} />
+        <Products result={result} />
       </div>
     </div>
   );
