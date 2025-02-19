@@ -8,39 +8,39 @@ const Colors = ({ handleCheckbox }) => {
         Colors
       </div>
       <Input 
-        onChange={handleCheckbox} 
+        handleCheckbox={handleCheckbox} 
         value="black" 
         name="color" 
         title="Black" 
         color="#000000" 
       />
       <Input 
-        onChange={handleCheckbox} 
+        handleCheckbox={handleCheckbox} 
         value="white" 
         name="color" 
         title="White" 
         color="#ffffff" 
       />
       <Input 
-        onChange={handleCheckbox} 
+        handleCheckbox={handleCheckbox} 
         value="blue" 
         name="color" 
         title="Blue" 
         color="#0000ff" 
       />
       <Input 
-        onChange={handleCheckbox} 
+        handleCheckbox={handleCheckbox} 
         value="brown" 
         name="color" 
         title="Brown" 
         color="#8B4513" 
       />
       <Input 
-        onChange={handleCheckbox} 
+        handleCheckbox={handleCheckbox} 
         value="green" 
         name="color" 
-        title="Green" 
-        color="#008000" 
+        title="Pink" 
+        color="#e27bb1" 
       />
     </>
   );
