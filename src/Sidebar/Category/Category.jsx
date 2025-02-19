@@ -7,36 +7,11 @@ const Category = ({ handleCheckbox }) => {
       <div className="font-sans text-[20px] flex justify-center align-center mt-7">
         Category
       </div>
-      <Input
-        handleCheckbox={handleCheckbox}
-        name="shoe"
-        title="All"
-        value="All"
-      />
-      <Input
-        handleCheckbox={handleCheckbox}
-        name="shoe"
-        title="Sneakers"
-        value="sneakers"
-      />
-      <Input
-        handleCheckbox={handleCheckbox}
-        name="shoe"
-        title="Flats"
-        value="flats"
-      />
-      <Input
-        handleCheckbox={handleCheckbox}
-        name="shoe"
-        title="Sandal"
-        value="sandal"
-      />
-      <Input
-        handleCheckbox={handleCheckbox}
-        name="shoe"
-        title="Heals"
-        value="heals"
-      />
+      <Input handleCheckbox={handleCheckbox} name="category" title="All" value="" />
+<Input handleCheckbox={handleCheckbox} name="category" title="Sneakers" value="Sneakers" />
+<Input handleCheckbox={handleCheckbox} name="category" title="Flats" value="Flats" />
+<Input handleCheckbox={handleCheckbox} name="category" title="Sandals" value="Sandals" />
+<Input handleCheckbox={handleCheckbox} name="category" title="Heels" value="Heels" />
     </>
   );
 };

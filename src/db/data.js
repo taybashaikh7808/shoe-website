@@ -10,7 +10,7 @@ export const data = [
     newPrice: 120,
     company: "Nike",
     color: "Black",
-    category: "Shoes",
+    category: "Sneakers",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const data = [
     newPrice: 140,
     company: "Adidas",
     color: "black",
-    category: "sneaker",
+    category: "Sneakers",
   },
   // Sandals
   {
@@ -35,7 +35,7 @@ export const data = [
     newPrice: 30,
     company: "Nike",
     color: "Black",
-    category: "sneaker",
+    category: "Sneakers",
   },
   {
     id: 7,
@@ -47,7 +47,7 @@ export const data = [
     newPrice: 335,
     company: "Adidas",
     color: "pink",
-    category: "Sandals",
+    category: "flats",
   },
   // Heels
   {

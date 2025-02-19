@@ -37,7 +37,7 @@ const Colors = ({ handleCheckbox }) => {
       />
       <Input 
         handleCheckbox={handleCheckbox} 
-        value="green" 
+        value="pink" 
         name="color" 
         title="Pink" 
         color="#e27bb1" 
