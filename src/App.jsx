@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Nav from "./Navigations/Nav";
-import Products from "./Products/Products";
-import Recommended from "./Recommended/Recommended";
-import Sidebar from "./Sidebar/Sidebar";
-import { data } from "./db/data.js";
+import Sidebar from './Sidebar'
+import Nav from "./Nav";
+import Recommended from "./Recommended";
+import Products from "./Products";
+import data from ".db/data"; // Ensure this is the correct path to your data file
+
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -11,12 +12,10 @@ const App = () => {
   const [selectedPrices, setSelectedPrices] = useState([]);
   const [query, setQuery] = useState("");
 
-  // Input handler for the search query
   const handleInput = (e) => {
     setQuery(e.target.value);
   };
 
-  // Checkbox handler for filters
   const handleCheckbox = (e) => {
     const { name, value, checked } = e.target;
 
@@ -39,59 +38,57 @@ const App = () => {
     }
   };
 
-  // Button handler for recommended filter buttons
   const handleButton = (e) => {
     setSelectedCategory(e.target.value);
   };
 
-  // Function to filter data based on query, category, color, and price
   const filteredData = (data, category, colors, prices, query) => {
-    let filteredData = data;
+    let filteredData = data; // Initialize with data
 
-    // Filter by query (search bar)
-    if (query) {
-      filteredData = filteredData.filter((item) =>
-        item.title.toLowerCase().includes(query.toLowerCase())
-      );
-    }
+if (query) {
+  filteredData = filteredData.filter((item) =>
+    item?.title?.toLowerCase().includes(query.toLowerCase())
+  );
+}
 
-    // Filter by selected category
-    if (category) {
-      filteredData = filteredData.filter(
-        (item) => item.category.toLowerCase() === category.toLowerCase()
-      );
-    }
+if (category) {
+  filteredData = filteredData.filter((item) =>
+    item?.category?.toLowerCase() === category.toLowerCase() ||
+    item?.company?.toLowerCase() === category.toLowerCase()
+  );
+}
 
-    // Filter by selected colors
-    if (colors.length > 0) {
-      filteredData = filteredData.filter((item) =>
-        colors.includes(item.color.toLowerCase())
-      );
-    }
+if (colors.length > 0) {
+  filteredData = filteredData.filter((item) =>
+    colors.includes(item?.color?.toLowerCase())
+  );
+}
 
-    // Filter by selected prices
-    if (prices.length > 0) {
-      filteredData = filteredData.filter((item) => {
-        return prices.some((priceRange) => {
-          const [min, max] = priceRange.split("-").map(Number);
-          return item.newPrice >= min && item.newPrice <= max;
-        });
-      });
-    }
+if (prices.length > 0) {
+  filteredData = filteredData.filter((item) => {
+    return prices.some((priceRange) => {
+      const [min, max] = priceRange.split("-").map(Number);
+      return item?.newPrice >= min && item?.newPrice <= max;
+    });
+  });
+}
 
     return filteredData;
   };
 
-  // Get filtered data
   const result = filteredData(data, selectedCategory, selectedColors, selectedPrices, query);
+
+  console.log("Filtered Result:", result);
 
   return (
     <div className="grid grid-cols-[250px_auto] h-screen">
+      hello
       <Sidebar handleCheckbox={handleCheckbox} />
       <div className="flex flex-col w-full">
         <Nav query={query} handleInput={handleInput} />
         <Recommended handleButton={handleButton} />
         <Products result={result} />
+        
       </div>
     </div>
   );
