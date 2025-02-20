@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   // Shoes
   {
     id: 1,
@@ -174,3 +174,5 @@ export const data = [
     }
   
 ];
+
+export default data

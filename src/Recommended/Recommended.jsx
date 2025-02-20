@@ -1,6 +1,11 @@
+import React from "react";
+import Buttons from "../components/Buttons";
+
+
 const Recommended = ({ handleButton }) => {
   return (
     <>
+    
       <div className="font-bold text-lg h-[40px] w-full flex items-center pl-10 pt-4">
         Recommended
       </div>
@@ -13,3 +18,5 @@ const Recommended = ({ handleButton }) => {
     </>
   );
 };
+
+export default Recommended;

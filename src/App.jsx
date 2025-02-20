@@ -1,10 +1,10 @@
+// App.js
 import React, { useState } from "react";
-import Sidebar from './Sidebar'
-import Nav from "./Nav";
-import Recommended from "./Recommended";
-import Products from "./Products";
-import data from ".db/data"; // Ensure this is the correct path to your data file
-
+import Sidebar from "./Sidebar/Sidebar";
+import Nav from "./Navigations/Nav";
+import Recommended from "./Recommended/Recommended";
+import Products from "./Products/Products";
+import data from "./db/data"; // Ensure this path is correct
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -43,52 +43,49 @@ const App = () => {
   };
 
   const filteredData = (data, category, colors, prices, query) => {
-    let filteredData = data; // Initialize with data
+    let filteredData = data;
 
-if (query) {
-  filteredData = filteredData.filter((item) =>
-    item?.title?.toLowerCase().includes(query.toLowerCase())
-  );
-}
+    if (query) {
+      filteredData = filteredData.filter((item) =>
+        item?.title?.toLowerCase().includes(query.toLowerCase())
+      );
+    }
 
-if (category) {
-  filteredData = filteredData.filter((item) =>
-    item?.category?.toLowerCase() === category.toLowerCase() ||
-    item?.company?.toLowerCase() === category.toLowerCase()
-  );
-}
+    if (category) {
+      filteredData = filteredData.filter(
+        (item) =>
+          item?.category?.toLowerCase() === category.toLowerCase() ||
+          item?.company?.toLowerCase() === category.toLowerCase()
+      );
+    }
 
-if (colors.length > 0) {
-  filteredData = filteredData.filter((item) =>
-    colors.includes(item?.color?.toLowerCase())
-  );
-}
+    if (colors.length > 0) {
+      filteredData = filteredData.filter((item) =>
+        colors.includes(item?.color?.toLowerCase())
+      );
+    }
 
-if (prices.length > 0) {
-  filteredData = filteredData.filter((item) => {
-    return prices.some((priceRange) => {
-      const [min, max] = priceRange.split("-").map(Number);
-      return item?.newPrice >= min && item?.newPrice <= max;
-    });
-  });
-}
+    if (prices.length > 0) {
+      filteredData = filteredData.filter((item) => {
+        return prices.some((priceRange) => {
+          const [min, max] = priceRange.split("-").map(Number);
+          return item?.newPrice >= min && item?.newPrice <= max;
+        });
+      });
+    }
 
     return filteredData;
   };
 
   const result = filteredData(data, selectedCategory, selectedColors, selectedPrices, query);
 
-  console.log("Filtered Result:", result);
-
   return (
     <div className="grid grid-cols-[250px_auto] h-screen">
-      hello
       <Sidebar handleCheckbox={handleCheckbox} />
       <div className="flex flex-col w-full">
         <Nav query={query} handleInput={handleInput} />
         <Recommended handleButton={handleButton} />
         <Products result={result} />
-        
       </div>
     </div>
   );
