@@ -15,7 +15,7 @@ const Nav = ({ query, handleInput }) => {
         />
       </div>
       <div className="flex space-x-4 mt-5 mr-10 ">
-        <CiHeart size={25} className="hover:text-red-800 cursor-pointer "/>
+        <CiHeart size={25} className="hover:text-red-900 cursor-pointer "/>
         <AiOutlineShoppingCart size={25} />
         <CiUser size={25} />
       </div>
