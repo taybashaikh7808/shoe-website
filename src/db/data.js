@@ -171,7 +171,55 @@ const data = [
       company: "Puma",
       color: "brown",
       category: "Sandals",
-    }
+    },
+      {
+        "id": 1,
+        "img": "https://tse2.mm.bing.net/th?id=OIP._-rO9Eqxi95HDrFfKlj_fQHaFj&pid=Api",
+        "title": "Betsey Johnson Mari Sandal",
+        "star": 4.6,
+        "reviews": 320,
+        "prevPrice": 280,
+        "newPrice": 275,
+        "company": "nike",
+        "color": "black",
+        "category": "Sandals"
+      },
+      {
+        "id": 2,
+        "img": "https://i.pinimg.com/736x/04/66/99/046699cb5a76bb71474812546777bc84.jpg",
+        "title": "Betsey Johnson Heel",
+        "star": 4.8,
+        "reviews": 290,
+        "prevPrice": 300,
+        "newPrice": 290,
+        "company": "puma",
+        "color": "blue",
+        "category": "Heels"
+      },
+      {
+        "id": 3,
+        "img": "https://m.media-amazon.com/images/I/81RTPUF7LwL._AC_SY500_.jpg",
+        "title": "Betsey Johnson Denni heeled Sandal",
+        "star": 4.7,
+        "reviews": 280,
+        "prevPrice": 400,
+        "newPrice": 380,
+        "company": "adidas",
+        "color": "pink",
+        "category": "sandals"
+      },
+      {
+        "id": 4,
+        "img": "https://i.pinimg.com/736x/d0/8f/cc/d08fcc7512702fadb4457187db8723a1.jpg",
+        "title": "Cady Ankle Bootie",
+        "star": 4.5,
+        "reviews": 250,
+        "prevPrice": 410,
+        "newPrice": 350,
+        "company": "adidas",
+        "color": "blue",
+        "category": "Heels"
+      }
   
 ];
 

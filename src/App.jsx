@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Nav from "./Navigations/Nav";
 import Recommended from "./Recommended/Recommended";
 import Products from "./Products/Products";
-import data from "./db/data"; // Ensure this path is correct
+import data from "./db/data"; 
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("");

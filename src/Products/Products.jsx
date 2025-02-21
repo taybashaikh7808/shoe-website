@@ -13,7 +13,7 @@ const Products = ({ result }) => {
             key={title} 
             img={img}
             title={title}
-            //star={star}
+            star={star}
             reviews={reviews}
             newPrice={newPrice}
             prevPrice={prevPrice}

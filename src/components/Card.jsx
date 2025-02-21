@@ -16,7 +16,7 @@ const Card = ({ img, category, color, company, prevPrice, title, newPrice, star,
       {/* Star and Reviews */}
       <div className="flex items-center text-sm text-gray-600 mt-1">
         <span>{star}⭐</span>
-        <div className="ml-1">({reviews} reviews)</div>
+        <div className="ml-3">({reviews} reviews)</div>
       </div>
 
       {/* Price */}
