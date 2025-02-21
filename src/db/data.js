@@ -59,7 +59,7 @@ const data = [
     prevPrice: 400,
     newPrice: 375,
     company: "Puma",
-    color: "pink",
+    color: "white",
     category: "Heels",
   },
   {
